@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Additionalinfo</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ additionalInfo.id }}</td>
+            </tr>
+            <tr>
+                <th>Fromdate</th>
+                <td>{% if additionalInfo.fromDate %}{{ additionalInfo.fromDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Untildate</th>
+                <td>{% if additionalInfo.untilDate %}{{ additionalInfo.untilDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Expire</th>
+                <td>{% if additionalInfo.expire %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ additionalInfo.text }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('additionalinfo_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('additionalinfo_edit', { 'id': additionalInfo.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

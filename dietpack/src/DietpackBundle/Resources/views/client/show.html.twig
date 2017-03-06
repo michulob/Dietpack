@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Klient</h1>
+
+    <table class="table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ client.id }}</td>
+            </tr>
+            <tr>
+                <th>Imie</th>
+                <td>{{ client.name }}</td>
+            </tr>
+            <tr>
+                <th>Drugie imie</th>
+                <td>{{ client.secondName }}</td>
+            </tr>
+            <tr>
+                <th>Nazwisko</th>
+                <td>{{ client.surname }}</td>
+            </tr>
+            <tr>
+                <th>Telefon kontaktowy</th>
+                <td>{{ client.phone }}</td>
+            </tr>
+            <tr>
+                <th>Miasto</th>
+                <td>{{ client.city }}</td>
+            </tr>
+            <tr>
+                <th>Dzielnica</th>
+                <td>{{ client.district }}</td>
+            </tr>
+            <tr>
+                <th>Ulica</th>
+                <td>{{ client.street }}</td>
+            </tr>
+            <tr>
+                <th>Numer domu</th>
+                <td>{{ client.building }}</td>
+            </tr>
+            <tr>
+                <th>Numer mieszkania</th>
+                <td>{{ client.flat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('client_index') }}">Lista klientów</a>
+        </li>
+        <li>
+            <a href="{{ path('client_edit', { 'id': client.id }) }}">Edycja {{ client.name }} {{ client.surname }}</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń klienta">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

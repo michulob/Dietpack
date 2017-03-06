@@ -1,0 +1,18 @@
+body{
+    background-color: #DADADA;
+    margin: 20px;
+}
+
+td, th, table {
+    padding: 5px;
+    text-align: left;
+    border: black 1px solid;
+}
+
+th {
+    font-size: 16px;
+}
+
+
+
+

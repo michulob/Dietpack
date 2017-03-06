@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stwórz nową diete</h1>
+
+    {{ form_start(form) }}
+    <table class="table-bordered table-hover">
+        <tr>
+            <td>
+                {{ form_label(form.name, 'Nazwa diety') }}
+            </td><td>
+                {{ form_widget(form.name) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.calorific, 'Kaloryczność') }}
+            </td><td>
+                {{ form_widget(form.calorific) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.startDate, 'Dzień startowy') }}
+            </td><td>
+                {{ form_widget(form.startDate) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.menu, 'Menu') }}
+            </td><td>
+                {{ form_widget(form.menu) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Dodaj" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('diet_index') }}">Lista diet</a>
+        </li>
+    </ul>
+{% endblock %}

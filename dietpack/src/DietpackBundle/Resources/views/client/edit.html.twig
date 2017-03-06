@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edycja klienta</h1>
+
+    {{ form_start(edit_form) }}
+    <table class="table-bordered table-hover">
+        <tr>
+            <td>
+                {{ form_label(edit_form.name, 'Imie') }}
+            </td><td>
+                {{ form_widget(edit_form.name) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.secondName, 'Drugie imie') }}
+            </td><td>
+                {{ form_widget(edit_form.secondName) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.surname, 'Nazwisko') }}
+            </td><td>
+                {{ form_widget(edit_form.surname) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.phone, 'Numer telefonu') }}
+            </td><td>
+                {{ form_widget(edit_form.phone) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.city, 'Miasto') }}
+            </td><td>
+                {{ form_widget(edit_form.city) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.district, 'Dzielnica') }}
+            </td><td>
+                {{ form_widget(edit_form.district) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.street, 'Ulica') }}
+            </td><td>
+                {{ form_widget(edit_form.street) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.building, 'Numer domu') }}
+            </td><td>
+                {{ form_widget(edit_form.building) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.flat, 'Numer mieszkania') }}
+            </td><td>
+                {{ form_widget(edit_form.flat) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Zapisz zmiany" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('client_index') }}">Lista klientów</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
