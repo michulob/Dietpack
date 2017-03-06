@@ -63,7 +63,7 @@ class OneOrder
     private $client;
     
     /**
-     * @ORM\OneToMany(targetEntity="AdditionalInfo", mappedBy="one_order")
+     * @ORM\OneToMany(targetEntity="AdditionalInfo", mappedBy="oneOrder")
      */
     private $additionalInfo;
     
@@ -299,5 +299,9 @@ class OneOrder
     public function getDuration()
     {
         return $this->duration;
+    }
+    
+    public function __toString() {
+        return $this->start->format('Y-m-d').' ||| '.$this->client.'  '.$this->diet;
     }
 }

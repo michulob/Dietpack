@@ -11,6 +11,7 @@
                 <th>Od kiedy</th>
                 <th>Do kiedy</th>
                 <th>Czas dostarczenia</th>
+                <th>Dodatkowa informacja</th>
                 <th>Akcje</th>
             </tr>
         </thead>
@@ -22,16 +23,15 @@
                 <td>{% if oneOrder.start %}{{ oneOrder.start|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if oneOrder.finish %}{{ oneOrder.finish|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if oneOrder.timeDelivery %}{{ oneOrder.timeDelivery|date('H:i:s') }}{% endif %}</td>
+                <td>{% if oneOrder.additionalInfo|length > 0 %} Jest {% else %} Nie ma {% endif %}</td>
                 <td>
-                    <a href="{{ path('oneorder_show', { 'id': oneOrder.id }) }}">Pokaż</a><br >
+                    <a href="{{ path('oneorder_show', { 'id': oneOrder.id }) }}">Pokaż</a><br />
                     <a href="{{ path('oneorder_edit', { 'id': oneOrder.id }) }}">Edytuj</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-
-        <a href="{{ path('oneorder_new') }}"><button>Stwórz nowy order</button></a>
+    <a href="{{ path('oneorder_new') }}"><button>Stwórz nowy order</button></a>
 
 {% endblock %}

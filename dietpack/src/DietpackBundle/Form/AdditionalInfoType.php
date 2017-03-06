@@ -13,7 +13,10 @@ class AdditionalInfoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('fromDate')->add('untilDate')->add('expire')->add('text')->add('oneOrder')        ;
+        $builder->add('fromDate')
+                ->add('untilDate')
+                ->add('text')
+                ->add('oneOrder')        ;
     }
     
     /**

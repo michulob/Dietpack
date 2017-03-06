@@ -1,45 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Additionalinfos list</h1>
+    <h1>Lista dodatkowych informacji</h1>
 
     <table class="table-hover">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Fromdate</th>
-                <th>Untildate</th>
-                <th>Expire</th>
-                <th>Text</th>
-                <th>Actions</th>
+                <th>Do orderu</th>
+                <th>Treść</th>
+                <th>Od kiedy</th>
+                <th>Do kiedy</th>
+                <th>Akcje</th>
             </tr>
         </thead>
         <tbody>
         {% for additionalInfo in additionalInfos %}
             <tr>
-                <td><a href="{{ path('additionalinfo_show', { 'id': additionalInfo.id }) }}">{{ additionalInfo.id }}</a></td>
+                <td>{{ additionalInfo.id }}</td>
+                <td>{{ additionalInfo.oneOrder }}</td>
+                <td>{{ additionalInfo.text }}</td>
                 <td>{% if additionalInfo.fromDate %}{{ additionalInfo.fromDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if additionalInfo.untilDate %}{{ additionalInfo.untilDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if additionalInfo.expire %}Yes{% else %}No{% endif %}</td>
-                <td>{{ additionalInfo.text }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('additionalinfo_show', { 'id': additionalInfo.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('additionalinfo_edit', { 'id': additionalInfo.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('additionalinfo_show', { 'id': additionalInfo.id }) }}">Pokaż</a>
+                    <a href="{{ path('additionalinfo_edit', { 'id': additionalInfo.id }) }}">Edytuj</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('additionalinfo_new') }}">Create a new additionalInfo</a>
-        </li>
-    </ul>
+        <a href="{{ path('additionalinfo_new') }}"><button>Stwórz nową informacje dodatkową</button></a>
+        
 {% endblock %}

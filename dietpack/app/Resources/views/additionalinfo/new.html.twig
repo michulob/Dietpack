@@ -1,16 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Additionalinfo creation</h1>
+    <h1>Stwórz dodatkową informacje</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    <table class="table-hover">
+        <tr>
+            <td>
+                {{ form_label(form.text, 'Treść') }}
+            </td><td>
+                {{ form_widget(form.text) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.oneOrder, 'Do jakiego orderu') }}
+            </td><td>
+                {{ form_widget(form.oneOrder) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.fromDate, 'Start') }}
+            </td><td>
+                {{ form_widget(form.fromDate) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.untilDate, 'Stop') }}
+            </td><td>
+                {{ form_widget(form.untilDate) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Dodaj" />
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('additionalinfo_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <a href="{{ path('additionalinfo_index') }}"><button>Powrót do listy</button></a>
 {% endblock %}

@@ -14,10 +14,6 @@
                 <td>{{ client.name }}</td>
             </tr>
             <tr>
-                <th>Drugie imie</th>
-                <td>{{ client.secondName }}</td>
-            </tr>
-            <tr>
                 <th>Nazwisko</th>
                 <td>{{ client.surname }}</td>
             </tr>
@@ -47,18 +43,9 @@
             </tr>
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('client_index') }}">Lista klientów</a>
-        </li>
-        <li>
-            <a href="{{ path('client_edit', { 'id': client.id }) }}">Edycja {{ client.name }} {{ client.surname }}</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Usuń klienta">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="{{ path('client_index') }}"><button>Lista klientów</button></a><br />
+    <a href="{{ path('client_edit', { 'id': client.id }) }}"><button>Edycja {{ client.name }} {{ client.surname }}</button></a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Usuń klienta">
+    {{ form_end(delete_form) }}
 {% endblock %}

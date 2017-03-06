@@ -14,13 +14,6 @@
         </tr>
         <tr>
             <td>
-                {{ form_label(edit_form.secondName, 'Drugie imie') }}
-            </td><td>
-                {{ form_widget(edit_form.secondName) }}
-            </td>
-        </tr>
-        <tr>
-            <td>
                 {{ form_label(edit_form.surname, 'Nazwisko') }}
             </td><td>
                 {{ form_widget(edit_form.surname) }}
@@ -56,14 +49,14 @@
         </tr>
         <tr>
             <td>
-                {{ form_label(edit_form.building, 'Numer domu') }}
+                {{ form_label(edit_form.building, 'Nr domu') }}
             </td><td>
                 {{ form_widget(edit_form.building) }}
             </td>
         </tr>
         <tr>
             <td>
-                {{ form_label(edit_form.flat, 'Numer mieszkania') }}
+                {{ form_label(edit_form.flat, 'Nr lokalu') }}
             </td><td>
                 {{ form_widget(edit_form.flat) }}
             </td>
@@ -71,15 +64,8 @@
     </table>
     <input type="submit" value="Zapisz zmiany" />
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('client_index') }}">Lista klientów</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Usuń">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="{{ path('client_index') }}"><button>Lista klientów</button></a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Usuń">
+    {{ form_end(delete_form) }}
 {% endblock %}

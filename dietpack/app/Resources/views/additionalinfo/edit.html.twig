@@ -1,21 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Additionalinfo edit</h1>
+    <h1>Edycja dodatkowej informacji</h1>
+
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    <table class="table-hover">
+        <tr>
+            <td>
+                {{ form_label(edit_form.text, 'Treść') }}
+            </td><td>
+                {{ form_widget(edit_form.text) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.oneOrder, 'Do jakiego orderu') }}
+            </td><td>
+                {{ form_widget(edit_form.oneOrder) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.fromDate, 'Start') }}
+            </td><td>
+                {{ form_widget(edit_form.fromDate) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.untilDate, 'Stop') }}
+            </td><td>
+                {{ form_widget(edit_form.untilDate) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Edytuj" />
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('additionalinfo_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="{{ path('additionalinfo_index') }}"><button>Powrót do listy</button></a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Skasuj">
+    {{ form_end(delete_form) }}
 {% endblock %}

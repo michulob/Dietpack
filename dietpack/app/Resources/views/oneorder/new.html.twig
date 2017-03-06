@@ -43,10 +43,5 @@
     </table>
     <input type="submit" value="Dodaj nowy order" />
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('oneorder_index') }}">Lista zamówień</a>
-        </li>
-    </ul>
+    <a href="{{ path('oneorder_index') }}"><button>Lista zamówień</button></a>
 {% endblock %}

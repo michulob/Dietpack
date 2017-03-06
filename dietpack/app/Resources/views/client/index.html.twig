@@ -8,14 +8,13 @@
             <tr>
                 <th>Id</th>
                 <th>Imie</th>
-                <th>Drugie imie</th>
                 <th>Nazwisko</th>
                 <th>Telefon</th>
                 <th>Miasto</th>
                 <th>Dzielnica</th>
                 <th>Ulica</th>
-                <th>Numer domu</th>
-                <th>Numer mieszkania</th>
+                <th>Nr domu</th>
+                <th>Nr lokalu</th>
                 <th>Akcje</th>
             </tr>
         </thead>
@@ -24,7 +23,6 @@
             <tr>
                 <td><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
                 <td>{{ client.name }}</td>
-                <td>{{ client.secondName }}</td>
                 <td>{{ client.surname }}</td>
                 <td>{{ client.phone }}</td>
                 <td>{{ client.city }}</td>
@@ -40,10 +38,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('client_new') }}">Dodaj nowego klienta</a>
-        </li>
-    </ul>
+    <a href="{{ path('client_new') }}"><button>Dodaj nowego klienta</button></a>
 {% endblock %}

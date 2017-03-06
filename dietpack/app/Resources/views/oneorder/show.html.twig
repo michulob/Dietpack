@@ -29,14 +29,16 @@
                 <th>Czas dostarczenia</th>
                 <td>{% if oneOrder.timeDelivery %}{{ oneOrder.timeDelivery|date('H:i:s') }}{% endif %}</td>
             </tr>
+            {% for info in oneOrder.additionalInfo %}
             <tr>
                 <th>Dodatkowa informacja</th>
-                <td>TU MA SIĘ ZNALEŚĆ DODATKOWA INFORMACJA</td>
+                <td> {{ info }} </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('oneorder_index') }}"><button>Powrót do listy orderów</button></a>
+    <a href="{{ path('oneorder_index') }}"><button>Powrót do listy orderów</button></a><br />
     <a href="{{ path('oneorder_edit', { 'id': oneOrder.id }) }}"><button>Edycja</button></a>
     {{ form_start(delete_form) }}
         <input type="submit" value="Usuń ten order">
