@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Składnik edycja</h1>
+
+    {{ form_start(edit_form) }}
+    <table>
+        <tr>
+            <td>
+                {{ form_label(edit_form.name, 'Nazwa składnika') }}
+            </td><td>
+                {{ form_widget(edit_form.name) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.calorificPer100, 'Kaloryczność na 100 gram') }}
+            </td><td>
+                {{ form_widget(edit_form.calorificPer100) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.category, 'Kategoria') }}
+            </td><td>
+                {{ form_widget(edit_form.category) }}
+            </td>
+        </tr>
+    </table>
+        <input type="submit" value="Edytuj" />
+    {{ form_end(edit_form) }}
+    <a href="{{ path('ingredient_index') }}"><button>Powrót do listy</button></a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Skasuj">
+    {{ form_end(delete_form) }}
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dodaj klienta</h1>
+
+    {{ form_start(form) }}
+    <table class="table-hover">
+        <tr>
+            <td>
+                {{ form_label(form.name, 'Imie') }}
+            </td><td>
+                {{ form_widget(form.name) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.secondName, 'Drugie imie') }}
+            </td><td>
+                {{ form_widget(form.secondName) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.surname, 'Nazwisko') }}
+            </td><td>
+                {{ form_widget(form.surname) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.phone, 'Numer telefonu') }}
+            </td><td>
+                {{ form_widget(form.phone) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.city, 'Miasto') }}
+            </td><td>
+                {{ form_widget(form.city) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.district, 'Dzielnica') }}
+            </td><td>
+                {{ form_widget(form.district) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.street, 'Ulica') }}
+            </td><td>
+                {{ form_widget(form.street) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.building, 'Numer domu') }}
+            </td><td>
+                {{ form_widget(form.building) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.flat, 'Numer mieszkania') }}
+            </td><td>
+                {{ form_widget(form.flat) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Dodaj" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('client_index') }}">Lista klientów</a>
+        </li>
+    </ul>
+{% endblock %}
+

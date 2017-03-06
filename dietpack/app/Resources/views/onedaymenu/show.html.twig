@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Menu jednodniowe</h1>
+
+    <table class="table-hover">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ oneDayMenu.id }}</td>
+            </tr>
+            <tr>
+                <th>Nazwa</th>
+                <td>{{ oneDayMenu.name }}</td>
+            </tr>
+            <tr>
+                <th>Śniadanie</th>
+                <td>{{ oneDayMenu.firstBreakfast }}</td>
+            </tr>
+            <tr>
+                <th>Drugie śniadanie</th>
+                <td>{{ oneDayMenu.secondBreakfast }}</td>
+            </tr>
+            <tr>
+                <th>Obiad</th>
+                <td>{{ oneDayMenu.dinner }}</td>
+            </tr>
+            <tr>
+                <th>Podwieczorek</th>
+                <td>{{ oneDayMenu.teaMeal }}</td>
+            </tr>
+            <tr>
+                <th>Kolacja</th>
+                <td>{{ oneDayMenu.supper }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{{ path('onedaymenu_index') }}"><button>Powrót do listy</button></a><br />
+    <a href="{{ path('onedaymenu_edit', { 'id': oneDayMenu.id }) }}"><button>Edycja</button></a>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń">
+            {{ form_end(delete_form) }}
+{% endblock %}

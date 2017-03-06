@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tworzenie nowego orderu</h1>
+
+    {{ form_start(form) }}
+    <table class="table-hover">
+        <tr>
+            <td>
+                {{ form_label(form.client, 'Klient') }}
+            </td><td>
+                {{ form_widget(form.client) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.diet, 'Dieta') }}
+            </td><td>
+                {{ form_widget(form.diet) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.start, 'Data startu') }}
+            </td><td>
+                {{ form_widget(form.start) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.duration, 'Czas trwania') }}
+            </td><td>
+                {{ form_widget(form.duration) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.timeDelivery, 'Godzina dostawy') }}
+            </td><td>
+                {{ form_widget(form.timeDelivery) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Dodaj nowy order" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('oneorder_index') }}">Lista zamówień</a>
+        </li>
+    </ul>
+{% endblock %}

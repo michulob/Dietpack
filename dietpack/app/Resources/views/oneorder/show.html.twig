@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Order o ID : {{ oneOrder.id }}</h1>
+
+    <table class="table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ oneOrder.id }}</td>
+            </tr>
+            <tr>
+                <th>Klient</th>
+                <td>{% if oneOrder.client %}{{ oneOrder.client }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Start diety</th>
+                <td>{% if oneOrder.start %}{{ oneOrder.start|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Koniec diety</th>
+                <td>{% if oneOrder.finish %}{{ oneOrder.finish|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Czy aktywna</th>
+                <td>{% if oneOrder.expire %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Czas dostarczenia</th>
+                <td>{% if oneOrder.timeDelivery %}{{ oneOrder.timeDelivery|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dodatkowa informacja</th>
+                <td>TU MA SIĘ ZNALEŚĆ DODATKOWA INFORMACJA</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('oneorder_index') }}"><button>Powrót do listy orderów</button></a>
+    <a href="{{ path('oneorder_edit', { 'id': oneOrder.id }) }}"><button>Edycja</button></a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Usuń ten order">
+    {{ form_end(delete_form) }}
+   
+{% endblock %}

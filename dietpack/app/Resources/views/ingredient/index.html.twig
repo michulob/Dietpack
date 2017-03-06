@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lista dostępnych składników</h1>
+
+    <table  class="table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>kcal/100g</th>
+                <th>Kategoria</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ingredient in ingredients %}
+            <tr>
+                <td><a href="{{ path('ingredient_show', { 'id': ingredient.id }) }}">{{ ingredient.id }}</a></td>
+                <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.calorificPer100 }}</td>
+                <td>{{ ingredient.category }}</td>
+                <td>                            
+                    <a href="{{ path('ingredient_show', { 'id': ingredient.id }) }}"><button>Pokaż</button></a>
+                    <a href="{{ path('ingredient_edit', { 'id': ingredient.id }) }}"><button>Edycja</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <a href="{{ path('ingredient_new') }}"><button>Dodaj nowy składnik</button></a>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edycja diety</h1>
+
+{{ form_start(edit_form) }}
+    <table class="table-hover">
+        <tr>
+            <td>
+                {{ form_label(edit_form.name, 'Nazwa diety') }}
+            </td><td>
+                {{ form_widget(edit_form.name) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.calorific, 'Kaloryczność') }}
+            </td><td>
+                {{ form_widget(edit_form.calorific) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.startDate, 'Dzień w którym startuje') }}
+            </td><td>
+                {{ form_widget(edit_form.startDate) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.menu1, 'Menu na dzień pierwszy') }}
+            </td><td>
+                {{ form_widget(edit_form.menu1) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.menu2, 'Menu na dzień drugi') }}
+            </td><td>
+                {{ form_widget(edit_form.menu2) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.menu3, 'Menu na dzień trzeci') }}
+            </td><td>
+                {{ form_widget(edit_form.menu3) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Zapisz zmiany" />
+    {{ form_end(edit_form) }}
+    <a href="{{ path('diet_index') }}"><button>Powrót do listy diet</button></a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Usuń dietę">
+    {{ form_end(delete_form) }}
+{% endblock %}

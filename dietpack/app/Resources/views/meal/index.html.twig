@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lista dań</h1>
+
+    <table class="table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa posiłku</th>
+                <th>Kaloryczność</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for meal in meals %}
+            <tr>
+                <td><a href="{{ path('meal_show', { 'id': meal.id }) }}">{{ meal.id }}</a></td>
+                <td>{{ meal.name }}</td>
+                <td>{{ meal.calorific }}</td>
+                <td>
+                    <a href="{{ path('meal_show', { 'id': meal.id }) }}">Pokaż</a><br />
+                    <a href="{{ path('meal_edit', { 'id': meal.id }) }}">Edytuj</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('meal_new') }}"><button>Stwórz nowy posiłek</button></a>
+{% endblock %}

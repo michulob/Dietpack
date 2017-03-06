@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dodaj składnik</h1>
+
+    {{ form_start(form) }}
+    <table>
+        <tr>
+            <td>
+                {{ form_label(form.name, 'Nazwa składnika') }}
+            </td><td>
+                {{ form_widget(form.name) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.calorificPer100, 'Kaloryczność na 100 gram') }}
+            </td><td>
+                {{ form_widget(form.calorificPer100) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.category, 'Kategoria') }}
+            </td><td>
+                {{ form_widget(form.category) }}
+            </td>
+        </tr>
+    </table>
+        <input type="submit" value="Dodaj" />
+    {{ form_end(form) }}
+    <a href="{{ path('ingredient_index') }}"><button>Powrót do listy</button></a>
+{% endblock %}

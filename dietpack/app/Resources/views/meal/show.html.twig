@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Posiłek</h1>
+
+    <table class="table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ meal.id }}</td>
+            </tr>
+            <tr>
+                <th>Nazwa</th>
+                <td>{{ meal.name }}</td>
+            </tr>
+            <tr>
+                <th>Kaloryczność</th>
+                <td>{{ meal.calorific }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <br />        
+    
+    <table>
+        <tbody>
+            <tr>
+                <th>Składniki</th>
+            </tr>
+            {% for ing in meal.ingredients %}
+            <tr>
+                <td>{{ing.name}}</td>       
+            </tr>    
+            {% endfor %}
+        </tbody>
+    </table>
+            <a href="{{ path('meal_index') }}"><button>Powrót do listy</button></a><br />
+            <a href="{{ path('meal_edit', { 'id': meal.id }) }}"><button>Edycja</button></a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Skasuj">
+    {{ form_end(delete_form) }}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edycja zamówienia o ID {{ oneOrder.id }}</h1>
+
+    {{ form_start(edit_form) }}
+    <table class="table-hover">
+        <tr>
+            <td>
+                {{ form_label(edit_form.diet, 'Nazwa diety') }}
+            </td><td>
+                {{ form_widget(edit_form.diet) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.client, 'Klient') }}
+            </td><td>
+                {{ form_widget(edit_form.client) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.start, 'Data startu diety') }}
+            </td><td>
+                {{ form_widget(edit_form.start) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.duration, 'Czas trwania diety') }}
+            </td><td>
+                {{ form_widget(edit_form.duration) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.timeDelivery, 'Godzina dostarczenia dostawy') }}
+            </td><td>
+                {{ form_widget(edit_form.timeDelivery) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Zapisz zmiany" />
+    {{ form_end(edit_form) }}
+
+    <a href="{{ path('oneorder_index') }}"><button>Powrót do listy orderów</button></a><br />
+
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Usuń">
+    {{ form_end(delete_form) }}
+
+{% endblock %}

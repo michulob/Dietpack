@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lista klientów</h1>
+
+    <table class="table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imie</th>
+                <th>Drugie imie</th>
+                <th>Nazwisko</th>
+                <th>Telefon</th>
+                <th>Miasto</th>
+                <th>Dzielnica</th>
+                <th>Ulica</th>
+                <th>Numer domu</th>
+                <th>Numer mieszkania</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
+                <td>{{ client.name }}</td>
+                <td>{{ client.secondName }}</td>
+                <td>{{ client.surname }}</td>
+                <td>{{ client.phone }}</td>
+                <td>{{ client.city }}</td>
+                <td>{{ client.district }}</td>
+                <td>{{ client.street }}</td>
+                <td>{{ client.building }}</td>
+                <td>{{ client.flat }}</td>
+                <td>
+                <a href="{{ path('client_show', { 'id': client.id }) }}">Pokaż</a><br>
+                <a href="{{ path('client_edit', { 'id': client.id }) }}">Edytuj</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('client_new') }}">Dodaj nowego klienta</a>
+        </li>
+    </ul>
+{% endblock %}

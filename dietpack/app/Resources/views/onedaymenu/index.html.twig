@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lista menu jednodniowych</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nazwa</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for oneDayMenu in oneDayMenus %}
+            <tr>
+                <td><a href="{{ path('onedaymenu_show', { 'id': oneDayMenu.id }) }}">{{ oneDayMenu.id }}</a></td>
+                <td>{{ oneDayMenu.name }}</td>
+                <td>
+                    <a href="{{ path('onedaymenu_show', { 'id': oneDayMenu.id }) }}"><button>Pokaż</button></a>
+                    <a href="{{ path('onedaymenu_edit', { 'id': oneDayMenu.id }) }}"><button>Edytuj</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <a href="{{ path('onedaymenu_new') }}"><button>Stwórz nowe menu na jeden dzień</button></a>
+{% endblock %}

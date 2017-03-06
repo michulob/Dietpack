@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dieta o ID {{ diet.id }}</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nazwa</th>
+                <td>{{ diet.name }}</td>
+            </tr>
+            <tr>
+                <th>Kaloryczność</th>
+                <td>{{ diet.calorific }}</td>
+            </tr>
+            <tr>
+                <th>Dzień startowy diety</th>
+                <td>{% if diet.startDate %}{{ diet.startDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+            <a href="{{ path('diet_index') }}"><button>Powrót do spisu diet</button></a><br />
+            <a href="{{ path('diet_edit', { 'id': diet.id }) }}"><button>Edycja diety</button></a>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń dietę">
+            {{ form_end(delete_form) }}
+{% endblock %}

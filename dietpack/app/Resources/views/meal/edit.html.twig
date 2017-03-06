@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edycja posiłku </h1>
+
+{{ form_start(edit_form) }}
+    <table class="table-hover">
+        <tr>
+            <td>
+                {{ form_label(edit_form.name, 'Nazwa posiłku') }}
+            </td><td>
+                {{ form_widget(edit_form.name) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.calorific, 'Kaloryczność') }}
+            </td><td>
+                {{ form_widget(edit_form.calorific) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(edit_form.ingredients, 'Składniki') }}
+            </td><td>
+                {{ form_widget(edit_form.ingredients) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Zapisz zmiany" />
+    {{ form_end(edit_form) }}
+    <a href="{{ path('meal_index') }}"><button>Powrót do listy</button></a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Skasuj">
+    {{ form_end(delete_form) }}
+{% endblock %}

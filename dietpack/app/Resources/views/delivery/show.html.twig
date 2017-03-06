@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Delivery</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ delivery.id }}</td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td>{% if delivery.time %}{{ delivery.time|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if delivery.date %}{{ delivery.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ delivery.client }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ delivery.address }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ delivery.phone }}</td>
+            </tr>
+            <tr>
+                <th>Diet</th>
+                <td>{{ delivery.diet }}</td>
+            </tr>
+            <tr>
+                <th>Meal</th>
+                <td>{{ delivery.meal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('delivery_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

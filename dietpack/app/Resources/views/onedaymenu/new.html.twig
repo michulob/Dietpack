@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Menu na jeden dzień</h1>
+
+    {{ form_start(form) }}
+    <table class="table-hover">
+        <tr>
+            <td>
+                {{ form_label(form.name, 'Nazwa menu jednodniowego') }}
+            </td><td>
+                {{ form_widget(form.name) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.diet, 'Wybierz diete') }}
+            </td><td>
+                {{ form_widget(form.diet) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.firstBreakfast, 'Śniadanie') }}
+            </td><td>
+                {{ form_widget(form.firstBreakfast) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.secondBreakfast, 'Drugie śniadanie') }}
+            </td><td>
+                {{ form_widget(form.secondBreakfast) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.dinner, 'Obiad') }}
+            </td><td>
+                {{ form_widget(form.dinner) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.teaMeal, 'Podwieczorek') }}
+            </td><td>
+                {{ form_widget(form.teaMeal) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.supper, 'Kolacja') }}
+            </td><td>
+                {{ form_widget(form.supper) }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Dodaj nowe menu" />
+    {{ form_end(form) }}
+            <a href="{{ path('onedaymenu_index') }}"><button>Lista wszystkich menu na jeden dzień</button></a>
+{% endblock %}
