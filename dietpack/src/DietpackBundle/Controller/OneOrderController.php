@@ -5,7 +5,8 @@ namespace DietpackBundle\Controller;
 use DietpackBundle\Entity\OneOrder;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Oneorder controller.
@@ -15,8 +16,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class OneOrderController extends Controller
 {
     /**
-     * Lists all oneOrder entities.
-     *
      * @Route("/", name="oneorder_index")
      * @Method("GET")
      */
@@ -134,5 +133,39 @@ class OneOrderController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+    /**
+     * @Route("/active")
+     * @Method("GET")
+     */
+    public function activeAction()
+    {
+//        $em = $this->getDoctrine()->getManager();
+//        
+//        $nowDate = new \DateTime();
+//        $nowDate->setDate(date('Y'),date('m'),date('d'));
+//        
+//        $query = $em->createQuery(
+//                        'SELECT p
+//                        FROM DietpackBundle:OneOrder p WHERE
+//                        p.startDate <= :nowDate
+//                        AND p.finishDate >= :nowDate')
+//                    ->setParameter('nowDate', $nowDate->format('Y-m-d'));
+//        $activeOrders = $em->getRepository('DietpackBundle:OneOrder');
+//        $activeOrders = $query->getResult();
+//
+//        
+//        return $this->render('oneorder/active.html.twig', array(
+//            'active' => $activeOrders,
+//        ));
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $oneOrders = $em->getRepository('DietpackBundle:OneOrder')->findAll();
+        $oneOrders = 'dupa';
+        
+        return $this->render('oneorder/active.html.twig', array(
+            'oneOrders' => $oneOrders,
+        ));
     }
 }

@@ -5,6 +5,7 @@ namespace DietpackBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class OneOrderType extends AbstractType
 {
@@ -13,11 +14,16 @@ class OneOrderType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('start')
+        $builder->add('start', DateType::class, array(
+                            'placeholder' => array(
+                                'year' => date('Y'), 'month' => date('M'), 'day' => date('d'),
+                            )
+                        ))
                 ->add('timeDelivery')
                 ->add('client')
                 ->add('duration')
-                ->add('diet')        ;
+                ->add('diet')
+                ->add('withWeekends');
     }
     
     /**

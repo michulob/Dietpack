@@ -50,7 +50,7 @@ class AdditionalInfo
     private $text;
     
     /**
-     * @ORM\ManyToOne(targetEntity="OneOrder", inversedBy="additional_nfo")
+     * @ORM\ManyToOne(targetEntity="OneOrder", inversedBy="additional_info")
      * @ORM\JoinColumn(name="one_order_id", referencedColumnName="id")
      */
     private $oneOrder;
@@ -98,7 +98,7 @@ class AdditionalInfo
     public function setUntilDate($untilDate)
     {
         $this->untilDate = $untilDate;
-
+        $this->setExpire();
         return $this;
     }
 
@@ -118,9 +118,15 @@ class AdditionalInfo
      * @param boolean $expire
      * @return AdditionalInfo
      */
-    public function setExpire($expire)
+    public function setExpire()
     {
-        $this->expire = $expire;
+        $now = new \DateTime();
+        $now->getTimestamp();
+        if($now <= $this->untilDate && $now >= $this->fromDate){
+            $this->expire = 1;
+        }else{
+            $this->expire = 0;
+        }
 
         return $this;
     }
@@ -178,6 +184,10 @@ class AdditionalInfo
      */
     public function getText()
     {
+        return $this->text;
+    }
+    
+    public function __toString(){
         return $this->text;
     }
 }

@@ -151,29 +151,6 @@ class Diet
     {
         $this->orders = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-    /**
-     * Set cycle
-     *
-     * @param integer $cycle
-     * @return Diet
-     */
-    public function setCycle($cycle)
-    {
-        $this->cycle = $cycle;
-
-        return $this;
-    }
-
-    /**
-     * Get cycle
-     *
-     * @return integer 
-     */
-    public function getCycle()
-    {
-        return $this->cycle;
-    }
     
     /**
      * Add orders
@@ -213,4 +190,73 @@ class Diet
         return $this->name.'  '.$this->calorific;
     }    
 
+
+    /**
+     * Set menu1
+     *
+     * @param \DietpackBundle\Entity\OneDayMenu $menu1
+     * @return Diet
+     */
+    public function setMenu1(\DietpackBundle\Entity\OneDayMenu $menu1 = null)
+    {
+        $this->menu1 = $menu1;
+
+        return $this;
+    }
+
+    /**
+     * Get menu1
+     *
+     * @return \DietpackBundle\Entity\OneDayMenu 
+     */
+    public function getMenu1()
+    {
+        return $this->menu1;
+    }
+
+    /**
+     * Set menu2
+     *
+     * @param \DietpackBundle\Entity\OneDayMenu $menu2
+     * @return Diet
+     */
+    public function setMenu2(\DietpackBundle\Entity\OneDayMenu $menu2 = null)
+    {
+        $this->menu2 = $menu2;
+
+        return $this;
+    }
+
+    /**
+     * Get menu2
+     *
+     * @return \DietpackBundle\Entity\OneDayMenu 
+     */
+    public function getMenu2()
+    {
+        return $this->menu2;
+    }
+
+    /**
+     * Set menu3
+     *
+     * @param \DietpackBundle\Entity\OneDayMenu $menu3
+     * @return Diet
+     */
+    public function setMenu3(\DietpackBundle\Entity\OneDayMenu $menu3 = null)
+    {
+        $this->menu3 = $menu3;
+
+        return $this;
+    }
+
+    /**
+     * Get menu3
+     *
+     * @return \DietpackBundle\Entity\OneDayMenu 
+     */
+    public function getMenu3()
+    {
+        return $this->menu3;
+    }
 }

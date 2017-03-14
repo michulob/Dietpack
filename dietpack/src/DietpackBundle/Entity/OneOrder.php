@@ -36,6 +36,13 @@ class OneOrder
     private $duration;
     
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="with_weekends", type="boolean")
+     */
+    private $withWeekends;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="finish", type="date")
@@ -52,7 +59,7 @@ class OneOrder
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="timeDelivery", type="time")
+     * @ORM\Column(name="time_delivery", type="time")
      */
     private $timeDelivery;
     
@@ -303,5 +310,28 @@ class OneOrder
     
     public function __toString() {
         return $this->start->format('Y-m-d').' ||| '.$this->client.'  '.$this->diet;
+    }
+
+    /**
+     * Set withWeekends
+     *
+     * @param boolean $withWeekends
+     * @return OneOrder
+     */
+    public function setWithWeekends($withWeekends)
+    {
+        $this->withWeekends = $withWeekends;
+
+        return $this;
+    }
+
+    /**
+     * Get withWeekends
+     *
+     * @return boolean 
+     */
+    public function getWithWeekends()
+    {
+        return $this->withWeekends;
     }
 }

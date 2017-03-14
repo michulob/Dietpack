@@ -31,13 +31,6 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="secondName", type="string", length=64, nullable=true)
-     */
-    private $secondName;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="surname", type="string", length=64)
      */
     private $surname;
@@ -123,28 +116,6 @@ class Client
         return $this->name;
     }
 
-    /**
-     * Set secondName
-     *
-     * @param string $secondName
-     * @return Client
-     */
-    public function setSecondName($secondName)
-    {
-        $this->secondName = $secondName;
-
-        return $this;
-    }
-
-    /**
-     * Get secondName
-     *
-     * @return string 
-     */
-    public function getSecondName()
-    {
-        return $this->secondName;
-    }
 
     /**
      * Set surname
